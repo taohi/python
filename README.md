@@ -1,4 +1,4 @@
 python
 ======
 
-Some python proj for fun.
+Some python proj for practice.
