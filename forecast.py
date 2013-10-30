@@ -1,19 +1,9 @@
 #!/usr/bin/python
-#-*-encoding:utf-8 -*-
-import urllib
-import re
+#-*-coding:utf-8 -*-
 import PyWapFetion
-from xml.etree.ElementTree import parse
-print "什么啊"
-
-#PyWapFetion.send("15171456231","eric111235","15171456231","什么啊")
-source = urllib.urlopen("http://weather.raychou.com/?/detail/57466/rss")
-weather_data = source.read()
-f = open("weather.xml","wb")
-f.write(weather_data)
-f.close()
-
-doc=parse("weather.xml")
-for  title in  doc.findall("channel"):
-    print title.findtext("title")
-
+import feedparser
+weather_source = "http://weather.raychou.com/?/detail/57466/rss"
+d=feedparser.parse(weather_source)
+send_content = d.feed.title + "\n明天:" + d.entries[1].description + "\n后天:" +  d.entries[2].description
+print send_content
+PyWapFetion.send("15171456231","eric111235","15171456231",send_content)
