@@ -5,10 +5,12 @@ d =  feedparser.parse(source)
 
 all_news=d.feed.title + d.feed.published+"\n\n"
 for single_news in d.entries:
-    all_news+= single_news.title
-    all_news+= single_news.description
+    all_news+= "\r\n"+single_news.title+"\n"
+    all_news+= single_news.description+"\n"
+    all_news+="-"*50
 
-f=open("news.txt","w+")
+all_news+="\n"
+f=open("data.txt","w")
 f.write(all_news)
 f.close
 print "Call me Big Brother.No thanks.\n"
