@@ -9,3 +9,4 @@ send_content = d.feed.title + "\n明天:" + d.entries[1].description + "\n后天
 #print send_content
 myfetion.send("15971653106",send_content,sm=True)
 myfetion.logout()
+print 'forecast success.'
