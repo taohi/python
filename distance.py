@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #-*-encoding:utf-8 -*-
+#方法来自于Google Map
 #计算地球上两点之间的距离，坐标用经纬度表示。 
 #1公里范围误差1米左右 
 import math
